@@ -68,7 +68,7 @@ Note for `iOS` builds: if you are developing an `iOS` application, set the `Enab
 
 ## Support the project
 
-<a href="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=Donation&targets-hint=&default-sum=&button-text=11&hint=&successURL=https%3A%2F%2Fgithub.com%2Feugenebokhan&quickpay=shop&account=410014480927275"><img src="Media/Donate.png" width=400>
+<a href="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=Donation&targets-hint=&default-sum=&button-text=11&hint=&successURL=https%3A%2F%2Fgithub.com%2Feugenebokhan&quickpay=shop&account=410014480927275"><img src="Media/donate.png" width=400>
 
 ## License
 
