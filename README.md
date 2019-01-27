@@ -54,10 +54,9 @@ In order to install `AssetImportKit` manually please read the [`How-to-Install`]
 do {
   let assimpScene = try SCNScene.assimpScene(filePath: filePath,
                                               postProcessSteps: [.defaultQuality])
-  if let modelScene = assimpScene.modelScene {
-    modelScene.rootNode.childNodes.forEach {
-      sceneView.scene?.rootNode.addChildNode($0)
-    }
+  let modelScene = assimpScene.modelScene
+  modelScene.rootNode.childNodes.forEach {
+    sceneView.scene?.rootNode.addChildNode($0)
   }
 } catch {
   print(error.localizedDescription)
