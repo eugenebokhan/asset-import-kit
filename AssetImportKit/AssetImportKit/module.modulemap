@@ -1,0 +1,35 @@
+// Module Map
+
+module assimp {
+    
+    module cimport [system][extern_c] {
+        private header "Dependencies/Assimp/include/assimp/cimport.h"
+        export *
+    }
+    
+    module light [system][extern_c] {
+        private header "Dependencies/Assimp/include/assimp/light.h"
+        export *
+    }
+    
+    module material [system][extern_c] {
+        private header "Dependencies/Assimp/include/assimp/material.h"
+        export *
+    }
+    
+    module postprocess [system][extern_c] {
+        private header "Dependencies/Assimp/include/assimp/postprocess.h"
+        export *
+    }
+    
+    module scene [system][extern_c] {
+        private header "Dependencies/Assimp/include/assimp/scene.h"
+        export *
+    }
+    
+    module types [system][extern_c] {
+        private header "Dependencies/Assimp/include/assimp/types.h"
+        export *
+    }
+    
+}
