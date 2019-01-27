@@ -13,7 +13,7 @@ import SceneKit.ModelIO
 import AssetImportKit
 
 class ScenePreviewViewContoller: UIViewController, CAAnimationDelegate {
-
+    
     // MARK: - UI Elements
     
     var sceneView = SCNView()
@@ -27,7 +27,7 @@ class ScenePreviewViewContoller: UIViewController, CAAnimationDelegate {
         modelContainerNode.constraints = []
         return modelContainerNode
     }()
-
+    
     var file: FBFile? {
         didSet {
             self.title = file?.displayName
@@ -130,10 +130,9 @@ class ScenePreviewViewContoller: UIViewController, CAAnimationDelegate {
                 do {
                     let assimpScene = try SCNScene.assimpScene(filePath: filePath,
                                                                postProcessSteps: [.defaultQuality])
-                    if let modelScene = assimpScene.modelScene {
-                        for childNode in modelScene.rootNode.childNodes {
-                            self.modelContainerNode.addChildNode(childNode)
-                        }
+                    let modelScene = assimpScene.modelScene
+                    for childNode in modelScene.rootNode.childNodes {
+                        self.modelContainerNode.addChildNode(childNode)
                     }
                     
                     self.sceneView.scene?.rootNode.addChildNode(self.modelContainerNode)
@@ -166,7 +165,7 @@ class ScenePreviewViewContoller: UIViewController, CAAnimationDelegate {
                 }
             }
         }
-
+        
         sceneView.scene?.rootNode.addChildNode(self.modelContainerNode)
         sceneDidLoad = true
         

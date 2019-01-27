@@ -45,11 +45,11 @@ class ViewController: NSViewController, CAAnimationDelegate, SCNSceneExportDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         setupSceneView()
     }
-
+    
     override var representedObject: Any? {
         didSet {
             // Update the view, if already loaded.
@@ -93,10 +93,9 @@ class ViewController: NSViewController, CAAnimationDelegate, SCNSceneExportDeleg
             do {
                 let assimpScene = try SCNScene.assimpScene(filePath: filePath,
                                                            postProcessSteps: [.defaultQuality])
-                if let modelScene = assimpScene.modelScene {
-                    modelScene.rootNode.childNodes.forEach {
-                        self.modelContainerNode.addChildNode($0)
-                    }
+                let modelScene = assimpScene.modelScene
+                modelScene.rootNode.childNodes.forEach {
+                    self.modelContainerNode.addChildNode($0)
                 }
                 
                 sceneView.scene?.rootNode.addChildNode(modelContainerNode)
@@ -181,7 +180,7 @@ class ViewController: NSViewController, CAAnimationDelegate, SCNSceneExportDeleg
                     let success = scene.write(to: sceneFileURL,
                                               options: nil,
                                               delegate: self) { (totalProgress, error, stop) in
-                        print("Progress \(totalProgress) Error: \(String(describing: error))")
+                                                print("Progress \(totalProgress) Error: \(String(describing: error))")
                     }
                     print("Success: \(success)")
                 }
@@ -190,6 +189,6 @@ class ViewController: NSViewController, CAAnimationDelegate, SCNSceneExportDeleg
             }
         }
     }
-
+    
 }
 

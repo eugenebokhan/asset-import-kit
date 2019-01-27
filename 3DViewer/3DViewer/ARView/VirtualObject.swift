@@ -1,20 +1,20 @@
  //
-//  VirtualObject.swift
-//  3DViewer
-//
-//  Created by Eugene Bokhan on 2/1/18.
-//  Copyright © 2018 Eugene Bokhan. All rights reserved.
-//
-
-import Foundation
-import ARKit
-import ModelIO
-import SceneKit
-import SceneKit.ModelIO
-import AssetImportKit
-
-
-var VirtualObjectsFilePath: String {
+ //  VirtualObject.swift
+ //  3DViewer
+ //
+ //  Created by Eugene Bokhan on 2/1/18.
+ //  Copyright © 2018 Eugene Bokhan. All rights reserved.
+ //
+ 
+ import Foundation
+ import ARKit
+ import ModelIO
+ import SceneKit
+ import SceneKit.ModelIO
+ import AssetImportKit
+ 
+ 
+ var VirtualObjectsFilePath: String {
     //1 - manager lets you examine contents of a files and folders in your app; creates a directory to where we are saving it
     let manager = FileManager.default
     //2 - this returns an array of urls from our documentDirectory and we take the first path
@@ -22,9 +22,9 @@ var VirtualObjectsFilePath: String {
     print("this is the url path in the documentDirectory \(String(describing: url))")
     //3 - creates a new path component and creates a new file called "Data" which is where we will store our Data array.
     return (url!.appendingPathComponent("VirtualObjects").path)
-}
-
-@objc class VirtualObject: SCNNode {
+ }
+ 
+ @objc class VirtualObject: SCNNode {
     
     var modelName: String = ""
     var fileExtension: String = ""
@@ -66,7 +66,7 @@ var VirtualObjectsFilePath: String {
     // MARK: - Conform to NSCoding
     override func encode(with aCoder: NSCoder) {
         print("encodeWithCoder")
-
+        
         aCoder.encode(file, forKey: "file")
         
     }
@@ -75,7 +75,7 @@ var VirtualObjectsFilePath: String {
     // it also must be declared as a 'convenience' initializer, because we still have a designated initializer as well
     required convenience init?(coder aDecoder: NSCoder) {
         print("decodeWithCoder")
-
+        
         guard let file = aDecoder.decodeObject(forKey: "file") as? FBFile
             else {
                 return nil
@@ -161,10 +161,9 @@ var VirtualObjectsFilePath: String {
             do {
                 let assimpScene = try SCNScene.assimpScene(filePath: filePath as String,
                                                            postProcessSteps: [.defaultQuality])
-                if let modelScene = assimpScene.modelScene {
-                    for childNode in modelScene.rootNode.childNodes {
-                        node.addChildNode(childNode)
-                    }
+                let modelScene = assimpScene.modelScene
+                for childNode in modelScene.rootNode.childNodes {
+                    node.addChildNode(childNode)
                 }
             } catch {
                 print(error.localizedDescription)
@@ -231,9 +230,9 @@ var VirtualObjectsFilePath: String {
     }
     
     
-}
-
-extension VirtualObject {
+ }
+ 
+ extension VirtualObject {
     
     static func isNodePartOfVirtualObject(_ node: SCNNode) -> Bool {
         if node.name == "Virtual object root node" {
@@ -256,7 +255,7 @@ extension VirtualObject {
                 
                 NSKeyedArchiver.archiveRootObject(availableObjects, toFile: VirtualObjectsFilePath)
                 
-               
+                
             }
         }
     }
@@ -269,15 +268,15 @@ extension VirtualObject {
         
     }
     
-}
-
-// MARK: - Protocols for Virtual Objects
-
-protocol ReactsToScale {
+ }
+ 
+ // MARK: - Protocols for Virtual Objects
+ 
+ protocol ReactsToScale {
     func reactToScale()
-}
-
-extension SCNNode {
+ }
+ 
+ extension SCNNode {
     
     func reactsToScale() -> ReactsToScale? {
         if let canReact = self as? ReactsToScale {
@@ -290,9 +289,9 @@ extension SCNNode {
         
         return nil
     }
-}
-
-extension UIImage {
+ }
+ 
+ extension UIImage {
     
     func maskRoundedImage(radius: CGFloat) -> UIImage {
         let imageView: UIImageView = UIImageView(image: self)
@@ -321,4 +320,4 @@ extension UIImage {
         return newImage!
     }
     
-}
+ }

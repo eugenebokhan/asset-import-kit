@@ -80,7 +80,6 @@ public struct AssetImporter {
     public mutating func makeSCNScene(fromAssimpScene aiScene: aiScene,
                                       at path: String) -> AssetImporterScene {
         print("Make an SCNScene")
-        let aiRootNode = aiScene.mRootNode.pointee
         let assetImporterScene = AssetImporterScene()
         /*
          ---------------------------------------------------------------------
@@ -88,6 +87,7 @@ public struct AssetImporter {
          ---------------------------------------------------------------------
          */
         let imageCache = AssimpImageCache()
+        let aiRootNode = aiScene.mRootNode.pointee
         let scnRootNode = makeSCNNode(fromAssimpNode: aiRootNode,
                                       in: aiScene,
                                       atPath: path,

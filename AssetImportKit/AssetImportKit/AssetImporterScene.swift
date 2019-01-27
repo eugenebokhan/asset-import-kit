@@ -22,7 +22,7 @@ import SceneKit
     /**
      The scene representing the mdoel and the optional skeleton.
      */
-    public var modelScene: SCNScene?
+    public var modelScene = SCNScene()
     
     /**
      The array of scenes where each scene is a skeletal animation.
@@ -66,7 +66,7 @@ import SceneKit
     ///     - assimpAnimation: scene to fetch animations from.
     ///     - animScene: scene to write animtaions to.
     func addAnimation(assimpAnimation: AssetImporterAnimation,
-                             to animScene: SCNScene) {
+                      to animScene: SCNScene) {
         
         if let frameAnims = assimpAnimation.frameAnims {
             
@@ -141,10 +141,9 @@ import SceneKit
     /// API. This also makes it trivial to support serialization using the existing
     /// SCNScene export API, thereby allowing easy integration in the XCode Scene
     /// editor and the asset pipeline.
-    public func makeModelScene() {
-        self.modelScene = SCNScene()
+    func makeModelScene() {
         for childNode in self.rootNode.childNodes {
-            self.modelScene?.rootNode.addChildNode(childNode)
+            self.modelScene.rootNode.addChildNode(childNode)
         }
     }
     
@@ -155,7 +154,7 @@ import SceneKit
     /// API. This also makes it trivial to support serialization using the existing
     /// SCNScene export API, thereby allowing easy integration in the XCode Scene
     /// editor and the asset pipeline.
-    public func makeAnimationScenes() {
+    func makeAnimationScenes() {
         for animSceneKey in self.animations.allKeys {
             if let animSceneKey = animSceneKey as? String {
                 if let assimpAnim = animations.value(forKey: animSceneKey) as? AssetImporterAnimation {

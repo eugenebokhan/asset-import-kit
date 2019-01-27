@@ -39,7 +39,7 @@ class DownloadManager: NSObject, URLSessionDownloadDelegate {
     var destinationURLForFile: URL!
     var directoryPath: String! {
         didSet {
-            destinationURLForFile = URL(fileURLWithPath: directoryPath.appendingFormat("/\(fileNameString)"))
+            destinationURLForFile = URL(fileURLWithPath: directoryPath.appendingFormat("/\(fileNameString!)"))
         }
     }
     var searchPathForDirectoriesInDomains: [String]! {
