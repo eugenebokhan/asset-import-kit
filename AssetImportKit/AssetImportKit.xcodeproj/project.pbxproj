@@ -496,6 +496,9 @@
 					1829E777202FEFEC008B9DE7 = {
 						CreatedOnToolsVersion = 9.3;
 					};
+					1850D2AE2030C371006F5972 = {
+						LastSwiftMigration = 1020;
+					};
 				};
 			};
 			buildConfigurationList = 1829E772202FEFEC008B9DE7 /* Build configuration list for PBXProject "AssetImportKit" */;
@@ -896,7 +899,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/AssetImportKit";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = x86_64;
 			};
@@ -943,7 +946,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/AssetImportKit";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = x86_64;
 			};

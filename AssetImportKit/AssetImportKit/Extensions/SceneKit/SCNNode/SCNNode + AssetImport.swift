@@ -20,7 +20,7 @@ public extension SCNNode {
     ///
     /// - Parameters:
     ///   - animNode: The node and it's subtree which has a CAAnimation.
-    public func addAnimation(from animNode: SCNNode,
+    func addAnimation(from animNode: SCNNode,
                              forKey animKey: String,
                              with settings: AssetImporterAnimSettings,
                              hasEvents: inout Bool,
@@ -77,7 +77,7 @@ public extension SCNNode {
     ///
     /// - Parameters:
     ///   - animScene: The scene object representing the animation.
-    public func addAnimationScene(_ animScene: SCNScene,
+    func addAnimationScene(_ animScene: SCNScene,
                                   forKey animKey: String,
                                   with settings: AssetImporterAnimSettings) {
         let rootAnimNode = animScene.rootNode.findSkeletonRootNode()
@@ -103,7 +103,7 @@ public extension SCNNode {
         }
     }
     
-    public func removeAnimation(at animNode: SCNNode,
+    func removeAnimation(at animNode: SCNNode,
                                 forKey animKey: String,
                                 fadeOutDuration: CGFloat,
                                 withSuffixes suffixes: [String]) {
@@ -125,7 +125,7 @@ public extension SCNNode {
     /// Removes the animation attached to the object with the specified key.
     ///
     /// - Parameter animKey: A string identifying an attached animation to remove.
-    public func removeAnimationScene(forKey animKey: String) {
+    func removeAnimationScene(forKey animKey: String) {
         let suffixes = [".transform.translation-", ".transform.quaternion-", ".transform.scale-"]
         removeAnimation(at: self,
                         forKey: animKey,
@@ -140,7 +140,7 @@ public extension SCNNode {
     ///   - animKey: A string identifying an attached animation to remove.
     ///   - fadeOutDuration: The duration for transitioning out of the animation’s
     /// effect before it is removed
-    public func removeAnimationScene(forKey animKey: String,
+    func removeAnimationScene(forKey animKey: String,
                                      fadeOutDuration: CGFloat) {
         let suffixes = [".transform.translation-", ".transform.quaternion-", ".transform.scale-"]
         removeAnimation(at: self,
@@ -149,7 +149,7 @@ public extension SCNNode {
                         withSuffixes: suffixes)
     }
 
-    public func pauseAnimation(at animNode: SCNNode,
+    func pauseAnimation(at animNode: SCNNode,
                                forKey animKey: String,
                                withSuffixes suffixes: [String]) {
         
@@ -172,14 +172,14 @@ public extension SCNNode {
     /// Pauses the animation attached to the object with the specified key.
     ///
     /// - Parameter animKey: A string identifying an attached animation.
-    public func pauseAnimationScene(forKey animKey: String) {
+    func pauseAnimationScene(forKey animKey: String) {
         let suffixes = [".transform.translation-", ".transform.quaternion-", ".transform.scale-"]
         pauseAnimation(at: self,
                        forKey: animKey,
                        withSuffixes: suffixes)
     }
     
-    public func resumeAnimation(at animNode: SCNNode,
+    func resumeAnimation(at animNode: SCNNode,
                                 forKey animKey: String,
                                 withSuffixes suffixes: [String]) {
         
@@ -203,14 +203,14 @@ public extension SCNNode {
     /// key.
     ///
     /// - Parameter animKey: A string identifying an attached animation.
-    public func resumeAnimationScene(forKey animKey: String) {
+    func resumeAnimationScene(forKey animKey: String) {
         let suffixes = [".transform.translation-", ".transform.quaternion-", ".transform.scale-"]
         resumeAnimation(at: self,
                         forKey: animKey,
                         withSuffixes: suffixes)
     }
     
-    public func isAnimationForScenePaused(at animNode: SCNNode,
+    func isAnimationForScenePaused(at animNode: SCNNode,
                                           forKey animKey: String,
                                           withSuffixes suffixes: [String]) -> Bool {
         var paused = false
@@ -241,7 +241,7 @@ public extension SCNNode {
     /// - Parameter animKey: A string identifying an attached animation.
     /// - Returns:  YES if the specified animation is paused. NO if the animation is
     /// running or no animation is attached to the object with that key.
-    public func isAnimationSceneForKeyPaused(_ animKey: String) -> Bool {
+    func isAnimationSceneForKeyPaused(_ animKey: String) -> Bool {
         let suffixes = [".transform.translation-", ".transform.quaternion-", ".transform.scale-"]
         return isAnimationForScenePaused(at: self,
                                          forKey: animKey,

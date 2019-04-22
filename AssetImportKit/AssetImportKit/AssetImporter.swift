@@ -438,7 +438,7 @@ public struct AssetImporter {
                     let aiVertexWeight = aiBone.mWeights[Int(k)]
                     let vertex = aiVertexWeight.mVertexId
                     let boneName = aiBone.mName.stringValue()
-                    if let boneIndex = boneNames.index(of: boneName) {
+                    if let boneIndex = boneNames.firstIndex(of: boneName) {
                         if meshBoneIndices.value(forKey: "\(vertex)") == nil {
                             let boneIndices = NSMutableArray()
                             boneIndices.add(boneIndex)
