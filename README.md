@@ -1,14 +1,6 @@
-<p align="left">
-    <img src="Media/AssetImportKit.png", width="844">
-</p>
-
-[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+# AssetImportKit
 
 **AssetImportKit** is a cross platform library (macOS, iOS) that coverts the files supported by [`Assimp`](https://github.com/assimp/assimp) to [`SceneKit`](https://developer.apple.com/reference/scenekit) scenes.
-
-<p align="center">
-    <img src="Media/AssetImportKit_Demonstration.png", width="818">
-</p>
 
 ## Features
 
@@ -20,33 +12,18 @@ The library supports:
 * Skeletal animations.
 * Serialization to `.scn` format
 
-#### Supported file formats ####
-
-AssetImportKit supports the following file formats: `3DS`, `3MF`, `COLLADA`, `FBX`, `GLTF`, `OBJ` `STL`.
-If you want to add support of all `Assimp` importers, please look at my [`assimp-for-ios build script`](https://github.com/eugenebokhan/Assimp-iOS-Light-Superbuild).
-
-## Demos
-
-This repository includes 2 small demos for macOS and iOS.
-
-<a href="3DViewer/README.md"><img src="Media/iOS Example App.png" width=50%></a><a href="SceneKitAssetImport/README.md"><img src="Media/macOS Example App.png" width=50%></a>
-
 ## Requirements
 
 - Xcode 10 or later
-- Swift 4.2
-- iOS 11.3 or later
-- macOS 10.13 or later
+- Swift 5.0
+- iOS 10.3 or later
+- macOS 10.12 or later
 
 ## Installation via `CocoaPods`
 
 ```Ruby
 pod 'AssetImportKit'
 ```
-
-## Manual Installation
-
-In order to install `AssetImportKit` manually please read the [`How-to-Install`](HowToInstall.md) guide.
 
 ## Usage
 
@@ -59,11 +36,9 @@ do {
     sceneView.scene?.rootNode.addChildNode($0)
   }
 } catch {
-  print(error.localizedDescription)
+  debugPrint(error.localizedDescription)
 }
 ```
-
-Note for `iOS` builds: if you are developing an `iOS` application, set the `Enable Bitcode` under `Build Settings->Build Options` of your target to `NO`.
 
 ## License
 
