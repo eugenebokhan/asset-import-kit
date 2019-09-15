@@ -203,7 +203,7 @@ extension aiNode {
         scnGeometrySources.append(makeVertexGeometrySource(from: aiScene))
         scnGeometrySources.append(makeNormalGeometrySource(from: aiScene))
         scnGeometrySources.append(makeTextureGeometrySource(from: aiScene))
-        if #available(OSX 10.12, iOS 10.0, *) {
+        if #available(macOS 10.12, iOS 10.0, *) {
             scnGeometrySources.append(makeTangentGeometrySource(from: aiScene))
         }
         if let colorGeometrySource = makeColorGeometrySource(from: aiScene) {

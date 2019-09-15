@@ -295,7 +295,7 @@ public extension SCNNode {
             let cameraNodeName = aiCamera.mName.stringValue()
             if (nodeName == cameraNodeName) {
                 let camera = SCNCamera()
-                if #available(OSX 10.13, iOS 11.0, *) {
+                if #available(macOS 10.13, iOS 11.0, *) {
                     camera.fieldOfView = CGFloat(aiCamera.mHorizontalFOV)
                 }
                 camera.zNear = Double(aiCamera.mClipPlaneNear)

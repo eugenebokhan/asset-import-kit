@@ -233,7 +233,7 @@ extension SCNMaterial {
             self.normal.magnificationFilter = .linear
             self.normal.minificationFilter = .linear
         case aiTextureType_DISPLACEMENT:
-            if #available(iOS 11.0, *) {
+            if #available(macOS 10.13, iOS 11.0, *) {
                 self.displacement.contents = textureInfo.getMaterialPropertyContents()
                 self.displacement.mappingChannel = 0
                 self.displacement.wrapS = .repeat
@@ -244,7 +244,7 @@ extension SCNMaterial {
                 self.displacement.minificationFilter = .linear
             }
         case aiTextureType_LIGHTMAP:
-            if #available(OSX 10.12, iOS 9.0, *) {
+            if #available(macOS 10.12, iOS 9.0, *) {
                 self.ambientOcclusion.contents = textureInfo.getMaterialPropertyContents()
                 self.ambientOcclusion.mappingChannel = 0
                 self.ambientOcclusion.wrapS = .repeat

@@ -233,7 +233,7 @@ public class AssetImporter {
                                                path: path,
                                                imageCache: imageCache)
             scnMaterial.loadMultiplyProperty(from: &aiMaterial)
-            if #available(OSX 10.12, iOS 9.0, *) {
+            if #available(macOS 10.12, iOS 9.0, *) {
                 scnMaterial.loadBlendModeProperty(from: &aiMaterial)
             }
             scnMaterial.loadCullModeProperty(from: &aiMaterial)
